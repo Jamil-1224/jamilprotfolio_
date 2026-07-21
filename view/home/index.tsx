@@ -1,0 +1,162 @@
+import { BookOpen, Mail, Sparkles } from "lucide-react";
+import { Hero } from "./hero";
+import { SkillSection } from "./skill_section";
+import { ScrollToTarget } from "./scroll-to-target";
+import { personalData } from "@/lib/data/personal-data";
+
+export function HomeView() {
+  return (
+    <div className="space-y-8 py-6 sm:py-8 lg:py-10">
+      <ScrollToTarget />
+      <Hero />
+
+      <SkillSection />
+
+      <section
+        id="experience"
+        className="scroll-mt-36 grid gap-6 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm lg:grid-cols-[0.95fr_1.05fr] lg:p-8"
+      >
+        <div className="space-y-4">
+          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <Sparkles className="h-4 w-4" /> Experience
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Teaching, tutoring, and learning by solving real problems.
+          </h2>
+          <p className="max-w-xl text-base leading-7 text-muted-foreground">
+            I teach foundational programming in weekly workshops at BAUST Computer Club and also
+            tutor students privately. The goal is always the same: make difficult ideas feel
+            approachable and useful.
+          </p>
+        </div>
+
+        <div className="grid gap-4">
+          <article className="rounded-3xl border border-border/60 bg-muted/30 p-5">
+            <p className="text-sm font-medium text-muted-foreground">Coding Instructor</p>
+            <h3 className="mt-2 text-xl font-semibold text-foreground">BAUST Computer Club</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Teach foundational programming in C++, Python, and Java to junior students through
+              weekly workshops.
+            </p>
+          </article>
+
+          <article className="rounded-3xl border border-border/60 bg-muted/30 p-5">
+            <p className="text-sm font-medium text-muted-foreground">Private Tutoring</p>
+            <h3 className="mt-2 text-xl font-semibold text-foreground">One-on-one support</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Help students understand programming basics, practice exercises, and build a
+              stronger problem-solving mindset.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="blog" className="scroll-mt-36 grid gap-6 rounded-[2rem] border border-border/60 bg-[#111217] p-6 text-white shadow-sm lg:grid-cols-[0.8fr_1.2fr] lg:p-8">
+        <div className="space-y-3">
+          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-white/55">
+            <Sparkles className="h-4 w-4" /> Highlights
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Competitive programming keeps me sharp.
+          </h2>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <p className="text-sm uppercase tracking-[0.24em] text-white/45">Practice</p>
+            <p className="mt-3 text-sm leading-6 text-white/80">
+              Solving problems regularly on Codeforces and beecrowd.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <p className="text-sm uppercase tracking-[0.24em] text-white/45">Teaching</p>
+            <p className="mt-3 text-sm leading-6 text-white/80">
+              Translating difficult concepts into beginner-friendly explanations.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:col-span-2">
+            <p className="text-sm uppercase tracking-[0.24em] text-white/45">Mindset</p>
+            <p className="mt-3 text-sm leading-6 text-white/80">
+              Patient, adaptable, and focused on collaboration, learning, and steady improvement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="scroll-mt-36 grid gap-6 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
+        <div className="space-y-3">
+          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <Mail className="h-4 w-4" /> Contact
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Reach out for mentoring, tutoring, or collaboration.
+          </h2>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <a
+            href={`mailto:${personalData.email}`}
+            className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-colors hover:bg-muted/40"
+          >
+            <p className="text-sm font-medium text-muted-foreground">Email</p>
+            <p className="mt-2 text-lg font-semibold text-foreground break-all">{personalData.email}</p>
+          </a>
+          <a
+            href={`tel:${personalData.phone.replace(/\s+/g, "")}`}
+            className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-colors hover:bg-muted/40"
+          >
+            <p className="text-sm font-medium text-muted-foreground">Phone</p>
+            <p className="mt-2 text-lg font-semibold text-foreground">{personalData.phone}</p>
+          </a>
+          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 sm:col-span-2">
+            <p className="text-sm font-medium text-muted-foreground">Social Profiles</p>
+            <div className="mt-3 flex flex-wrap gap-4 text-sm font-medium">
+              <a
+                href={personalData.social_usernames.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:underline"
+              >
+                GitHub
+              </a>
+              <span className="text-muted-foreground">·</span>
+              <a
+                href={personalData.social_usernames.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:underline"
+              >
+                LinkedIn
+              </a>
+              <span className="text-muted-foreground">·</span>
+              <a
+                href={personalData.social_usernames.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:underline"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" className="scroll-mt-36 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm lg:p-8">
+        <div className="space-y-3">
+          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <BookOpen className="h-4 w-4" /> Education
+          </p>
+          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              Bachelor of Science in Computer Science & Engineering
+            </h2>
+            <p className="mt-2 text-base text-muted-foreground">
+              Bangladesh Army University of Science & Technology (BAUST) · 2023 onward
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
