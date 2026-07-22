@@ -12,6 +12,13 @@ export async function sendEmail(formData: FormData) {
     return { success: false, error: "All fields are required" };
   }
 
+  if (!process.env.MAIL_USERNAME || !process.env.MAIL_PASSWORD) {
+    return { 
+      success: false, 
+      error: "Missing Email Credentials. Please add MAIL_USERNAME and MAIL_PASSWORD to your Vercel Environment Variables and Redeploy." 
+    };
+  }
+
   console.log("--- SMTP AUTH DEBUG ---");
   console.log("Using Username:", process.env.MAIL_USERNAME);
   console.log("Password Length:", process.env.MAIL_PASSWORD ? process.env.MAIL_PASSWORD.length : 0);
