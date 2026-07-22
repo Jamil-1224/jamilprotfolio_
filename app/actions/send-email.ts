@@ -18,7 +18,8 @@ export async function sendEmail(formData: FormData) {
   console.log("If these do not match your .env file, YOU MUST RESTART THE SERVER.");
   console.log("-----------------------");
 
-  const isGmail = process.env.MAIL_HOST?.includes("gmail.com");
+  const host = process.env.MAIL_HOST || "smtp.gmail.com";
+  const isGmail = host.includes("gmail.com");
   
   const transporter = nodemailer.createTransport(
     isGmail 
@@ -30,7 +31,7 @@ export async function sendEmail(formData: FormData) {
           },
         }
       : {
-          host: process.env.MAIL_HOST,
+          host: host,
           port: Number(process.env.MAIL_PORT) || 587,
           secure: process.env.MAIL_ENCRYPTION === "tls" ? false : true,
           auth: {
