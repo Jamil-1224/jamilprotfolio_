@@ -3,6 +3,9 @@ import { Hero } from "./hero";
 import { SkillSection } from "./skill_section";
 import { ScrollToTarget } from "./scroll-to-target";
 import { personalData } from "@/lib/data/personal-data";
+import { ContactForm } from "./contact/contact-form";
+import { ContactInfoCard } from "./contact/contact-info-card";
+import { ContactSocialLink } from "./contact/contact-social-link";
 
 export function HomeView() {
   return (
@@ -84,61 +87,20 @@ export function HomeView() {
       </section>
 
       <section id="contact" className="scroll-mt-36 grid gap-6 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
-        <div className="space-y-3">
-          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
-            <Mail className="h-4 w-4" /> Contact
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Reach out for mentoring, tutoring, or collaboration.
-          </h2>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          <a
-            href={`mailto:${personalData.email}`}
-            className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-colors hover:bg-muted/40"
-          >
-            <p className="text-sm font-medium text-muted-foreground">Email</p>
-            <p className="mt-2 text-lg font-semibold text-foreground break-all">{personalData.email}</p>
-          </a>
-          <a
-            href={`tel:${personalData.phone.replace(/\s+/g, "")}`}
-            className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-colors hover:bg-muted/40"
-          >
-            <p className="text-sm font-medium text-muted-foreground">Phone</p>
-            <p className="mt-2 text-lg font-semibold text-foreground">{personalData.phone}</p>
-          </a>
-          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 sm:col-span-2">
-            <p className="text-sm font-medium text-muted-foreground">Social Profiles</p>
-            <div className="mt-3 flex flex-wrap gap-4 text-sm font-medium">
-              <a
-                href={personalData.social_usernames.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:underline"
-              >
-                GitHub
-              </a>
-              <span className="text-muted-foreground">·</span>
-              <a
-                href={personalData.social_usernames.linkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:underline"
-              >
-                LinkedIn
-              </a>
-              <span className="text-muted-foreground">·</span>
-              <a
-                href={personalData.social_usernames.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:underline"
-              >
-                Facebook
-              </a>
-            </div>
+        <div className="flex flex-col gap-6">
+          <div className="space-y-3">
+            <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              <Mail className="h-4 w-4" /> Contact
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Reach out for mentoring, tutoring, or collaboration.
+            </h2>
           </div>
+          <ContactInfoCard />
+          <ContactSocialLink />
+        </div>
+        <div className="w-full">
+          <ContactForm />
         </div>
       </section>
 
