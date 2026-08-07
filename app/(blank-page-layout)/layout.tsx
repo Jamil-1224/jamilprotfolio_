@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rousonjamil.vercel.app"),
   
   verification: {
-    google: "google9dd13f35d0a09f10",
+    google: "oGvE4WMmpWlip1ALUeEJFuYLnCUXOPB09tV9XDKO1-w",
   },
 
   title: {

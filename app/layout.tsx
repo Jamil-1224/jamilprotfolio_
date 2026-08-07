@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   creator: personalData.full_name,
   publisher: personalData.full_name,
   verification: {
-    google: "google9dd13f35d0a09f10",
+    google: "oGvE4WMmpWlip1ALUeEJFuYLnCUXOPB09tV9XDKO1-w",
   },
   keywords: [
     personalData.full_name,
