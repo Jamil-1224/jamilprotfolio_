@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   authors: [{ name: personalData.full_name }],
   creator: personalData.full_name,
   publisher: personalData.full_name,
+  verification: {
+    google: "google9dd13f35d0a09f10",
+  },
   keywords: [
     personalData.full_name,
     personalData.post,
