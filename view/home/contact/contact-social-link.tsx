@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export function ContactSocialLink() {
   return (
-    <div className="flex flex-col gap-4 rounded-3xl border border-border/60 bg-muted/25 p-6 shadow-sm sm:p-8">
+    <div className="flex flex-col gap-4 rounded-3xl border border-border/60 bg-muted/25 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md sm:p-8">
       <h3 className="text-xl font-bold text-foreground mb-2">Connect with me</h3>
       <div className="flex items-center gap-4">
         {personalData.social_usernames.github && (

@@ -31,7 +31,7 @@ function FacebookIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 const quickFacts = [
   { label: "Role", value: personalData.post },
-  { label: "Focus", value: "Competitive Programming" },
+  { label: "Focus", value: personalData.interests.slice(0, 2).join(" · ") },
   { label: "Location", value: "Saidpur, Rajshahi" },
 ];
 
@@ -59,6 +59,16 @@ export function Hero() {
             <p className="max-w-2xl text-base leading-7 text-white/78 sm:text-lg">
               {personalData.post_description}
             </p>
+            <div className="flex flex-wrap gap-2">
+              {personalData.interests.map((interest) => (
+                <span
+                  key={interest}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-white/70"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -112,7 +122,7 @@ export function Hero() {
             {quickFacts.map((fact) => (
               <div
                 key={fact.label}
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm"
+                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 hover:shadow-lg"
               >
                 <p className="text-xs uppercase tracking-[0.24em] text-white/45">{fact.label}</p>
                 <p className="mt-2 text-sm font-medium text-white">{fact.value}</p>
@@ -124,8 +134,8 @@ export function Hero() {
         <div className="relative">
           <div className="absolute -left-6 top-10 h-32 w-32 rounded-full bg-sky-400/20 blur-3xl" />
           <div className="absolute -right-6 bottom-8 h-32 w-32 rounded-full bg-white/10 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/8 p-5 shadow-2xl backdrop-blur-sm">
-            <div className="rounded-[1.5rem] border border-white/10 bg-[#111827] p-5">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/8 p-5 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_28px_90px_rgba(0,0,0,0.35)]">
+            <div className="rounded-[1.5rem] border border-white/10 bg-[#111827] p-5 transition-all duration-300 hover:border-white/20">
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-[0.3em] text-white/45">Profile</span>
                 <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200">
@@ -157,6 +167,12 @@ export function Hero() {
                   <div className="flex items-start gap-3">
                     <Trophy className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
                     <span>Problem solving with Codeforces and beecrowd</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
+                    <span>
+                      {personalData.education.level} - {personalData.education.institution} - {personalData.education.result}
+                    </span>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />

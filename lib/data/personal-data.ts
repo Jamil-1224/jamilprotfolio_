@@ -6,6 +6,17 @@ export interface PersonalData {
   post: string;
   headings: string[];
   post_description: string;
+  interests: string[];
+  education: {
+    level: string;
+    institution: string;
+    result: string;
+  };
+  universityEducation: {
+    level: string;
+    institution: string;
+    currentCgpa: string;
+  };
   email: string;
   phone: string;
   location: string;
@@ -24,12 +35,21 @@ export const personalData: PersonalData = {
   nickname: "Jamil",
   post: "Full Stack Developer",
   headings: [
-    "Full Stack Developer",
-    "Software Engineer",
-    "Competitive Programming",
+    "Software Engineer Researcher Problem Solver",
   ],
   post_description:
     "Final-year CSE student at BAUST University, passionate about backend development and competitive programming.",
+  interests: ["Research", "Machine Learning", "Competitive Programming"],
+  education: {
+    level: "Higher Secondary Certificate",
+    institution: "Ullapara Science College",
+    result: "GPA: 5.00 / 5.00",
+  },
+  universityEducation: {
+    level: "Bachelor of Science in Computer Science & Engineering",
+    institution: "Bangladesh Army University of Science & Technology (BAUST)",
+    currentCgpa: "3.84",
+  },
   email: "rousonjamil5328@gmail.com",
   phone: "+8801755224848",
   location: "Ullapara,Sirajganj,Bangladesh",

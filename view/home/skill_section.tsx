@@ -25,7 +25,7 @@ export function SkillSection() {
 						return (
 							<article
 								key={group.title}
-								className="rounded-3xl border border-border/60 bg-muted/25 p-5"
+								className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md"
 							>
 								<div className="flex items-center gap-3">
 									<span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-foreground text-background">

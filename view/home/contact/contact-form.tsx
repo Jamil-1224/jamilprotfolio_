@@ -50,7 +50,7 @@ export function ContactForm() {
               id="name"
               required
               className="rounded-xl border border-border/60 bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground transition-colors"
-              placeholder="John Doe"
+              placeholder="Enter your name"
             />
           </div>
           
@@ -64,7 +64,7 @@ export function ContactForm() {
               id="email"
               required
               className="rounded-xl border border-border/60 bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground transition-colors"
-              placeholder="john@example.com"
+              placeholder="Enter your email"
             />
           </div>
         </div>

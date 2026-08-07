@@ -5,7 +5,13 @@ export function scrollToElement(id: string) {
     return;
   }
 
-  element.scrollIntoView({ behavior: "smooth", block: "start" });
+  const headerOffset = 112;
+  const elementTop = element.getBoundingClientRect().top + window.scrollY;
+
+  window.scrollTo({
+    top: Math.max(elementTop - headerOffset, 0),
+    behavior: "smooth",
+  });
 }
 
 export function scrollToTop() {

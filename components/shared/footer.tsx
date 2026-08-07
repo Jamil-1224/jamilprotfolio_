@@ -37,7 +37,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Link href="/" className="inline-block mb-6">
               <span className="text-2xl font-semibold tracking-tight text-white">
-                {personalData.first_name.toUpperCase()}.<span className="text-zinc-500 font-medium">{personalData.last_name.toUpperCase()}</span>
+                {personalData.full_name}
               </span>
             </Link>
             <p className="text-[15px] leading-relaxed text-zinc-300">

@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Container } from "./container";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { scrollToElement, scrollToTop } from "@/lib/scroll";
@@ -36,6 +37,8 @@ export function Header() {
   const [activeLink, setActiveLink] = useState("Home");
   const pathname = usePathname();
   const router = useRouter();
+  const autoScrollTargetRef = useRef<string | null>(null);
+  const isAutoScrollingRef = useRef(false);
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -60,6 +63,16 @@ export function Header() {
         }
       }
 
+      if (isAutoScrollingRef.current && autoScrollTargetRef.current) {
+        if (currentSection === autoScrollTargetRef.current) {
+          setActiveLink(sectionToLink[currentSection] ?? "Home");
+          isAutoScrollingRef.current = false;
+          autoScrollTargetRef.current = null;
+        }
+
+        return;
+      }
+
       setActiveLink(sectionToLink[currentSection] ?? "Home");
     };
 
@@ -71,6 +84,8 @@ export function Header() {
 
   const handleHomeClick = () => {
     setActiveLink("Home");
+    isAutoScrollingRef.current = false;
+    autoScrollTargetRef.current = null;
 
     if (pathname === "/") {
       scrollToTop();
@@ -82,6 +97,8 @@ export function Header() {
 
   const handleSectionClick = (name: string, target: string) => {
     setActiveLink(name);
+    isAutoScrollingRef.current = true;
+    autoScrollTargetRef.current = target;
 
     if (pathname !== "/") {
       setScrollTarget(target);
@@ -98,7 +115,7 @@ export function Header() {
         <div className="flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center gap-1 z-50">
             <span className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
-              {personalData.first_name.toUpperCase()}.<span className="text-muted-foreground font-medium">{personalData.last_name.toUpperCase()}</span>
+              {personalData.full_name}
             </span>
           </Link>
 
@@ -157,7 +174,7 @@ export function Header() {
                 <div className="flex items-center justify-between mt-2 mb-10">
                   <Link href="/" className="flex items-center gap-1" onClick={() => setIsOpen(false)}>
                     <span className="text-xl font-semibold tracking-tight text-foreground">
-                      {personalData.first_name.toUpperCase()}.<span className="text-muted-foreground font-medium">{personalData.last_name.toUpperCase()}</span>
+                      {personalData.full_name}
                     </span>
                   </Link>
                 </div>

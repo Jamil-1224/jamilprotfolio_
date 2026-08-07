@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export function ContactInfoCard() {
   return (
-    <div className="flex flex-col gap-6 rounded-3xl border border-border/60 bg-muted/25 p-6 shadow-sm sm:p-8">
+    <div className="flex flex-col gap-6 rounded-3xl border border-border/60 bg-muted/25 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md sm:p-8">
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-foreground text-background">
           <Mail className="h-5 w-5" />

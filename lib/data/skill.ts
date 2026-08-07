@@ -1,5 +1,14 @@
 import type { LucideIcon } from "lucide-react";
-import { BrainCircuit, BriefcaseBusiness, Layers3, Users } from "lucide-react";
+import {
+  Brain,
+  BrainCircuit,
+  BriefcaseBusiness,
+  Database,
+  Microscope,
+  Smartphone,
+  Layers3,
+  Users,
+} from "lucide-react";
 
 export type SkillGroup = {
   title: string;
@@ -17,6 +26,51 @@ export const skillGroups: SkillGroup[] = [
     title: "Problem Solving",
     items: ["Competitive Programming", "Codeforces", "beecrowd"],
     icon: BrainCircuit,
+  },
+
+  {
+    title: "Database",
+    items: [
+      "MySQL",
+      "Firebase",
+      "Firestore",
+      "SQL"
+    ],
+    icon: Database,
+  },
+
+  {
+    title: "Artificial Intelligence",
+    items: [
+      "Machine Learning",
+      "Deep Learning",
+      "Data Preprocessing",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    icon: Brain,
+  },
+
+  {
+    title: "Research",
+    items: [
+      "Phishing Detection",
+      "Deepfake Detection",
+      "Literature Review",
+      "Dataset Collection"
+    ],
+    icon: Microscope,
+  },
+
+  {
+    title: "Mobile Development",
+    items: [
+      "Android Studio",
+      "Java",
+      "Firebase",
+      "Material Design"
+    ],
+    icon: Smartphone,
   },
   {
     title: "Teaching & Communication",
