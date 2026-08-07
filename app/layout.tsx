@@ -123,6 +123,9 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, sourceSans3Heading.variable)}
     >
+      <head>
+        <meta name="google-site-verification" content="oGvE4WMmpWlip1ALUeEJFuYLnCUXOPB09tV9XDKO1-w" />
+      </head>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
