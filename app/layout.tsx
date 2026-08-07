@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   creator: personalData.full_name,
   publisher: personalData.full_name,
   verification: {
-    google: "oGvE4WMmpWlip1ALUeEJFuYLnCUXOPB09tV9XDKO1-w",
+    google: "google9dd13f35d0a09f10.html",
   },
   keywords: [
     personalData.full_name,
@@ -124,7 +124,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, sourceSans3Heading.variable)}
     >
       <head>
-        <meta name="google-site-verification" content="oGvE4WMmpWlip1ALUeEJFuYLnCUXOPB09tV9XDKO1-w" />
+        <meta name="google-site-verification" content="google9dd13f35d0a09f10.html" />
       </head>
       <body className="min-h-full flex flex-col">
         <script
