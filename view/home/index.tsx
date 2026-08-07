@@ -35,6 +35,14 @@ export function HomeView() {
 
         <div className="grid gap-4">
           <article className="rounded-3xl border border-border/60 bg-muted/30 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/40 hover:shadow-md">
+            <p className="text-sm font-medium text-muted-foreground">Machine Learning Intern</p>
+            <h3 className="mt-2 text-xl font-semibold text-foreground">FlyRank</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Recently joined FlyRank as a machine learning intern.
+            </p>
+          </article>
+
+          <article className="rounded-3xl border border-border/60 bg-muted/30 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/40 hover:shadow-md">
             <p className="text-sm font-medium text-muted-foreground">Coding Instructor</p>
             <h3 className="mt-2 text-xl font-semibold text-foreground">BAUST Computer Club</h3>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
@@ -51,6 +59,36 @@ export function HomeView() {
               stronger problem-solving mindset.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section id="education" className="scroll-mt-36 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:shadow-lg lg:p-8">
+        <div className="space-y-3">
+          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <BookOpen className="h-4 w-4" /> Education
+          </p>
+          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              {personalData.universityEducation.level}
+            </h2>
+            <p className="mt-2 text-base text-muted-foreground">
+              {personalData.universityEducation.institution} · 2023 onward
+            </p>
+            <p className="mt-1 text-sm font-medium text-foreground/80">
+              Current CGPA: {personalData.universityEducation.currentCgpa}
+            </p>
+          </div>
+          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md">
+            <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              {personalData.education.level}
+            </h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              {personalData.education.institution}
+            </p>
+            <p className="mt-1 text-sm font-medium text-foreground/80">
+              {personalData.education.result}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -104,35 +142,6 @@ export function HomeView() {
         </div>
       </section>
 
-      <section id="education" className="scroll-mt-36 rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:shadow-lg lg:p-8">
-        <div className="space-y-3">
-          <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
-            <BookOpen className="h-4 w-4" /> Education
-          </p>
-          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              {personalData.universityEducation.level}
-            </h2>
-            <p className="mt-2 text-base text-muted-foreground">
-              {personalData.universityEducation.institution} · 2023 onward
-            </p>
-            <p className="mt-1 text-sm font-medium text-foreground/80">
-              Current CGPA: {personalData.universityEducation.currentCgpa}
-            </p>
-          </div>
-          <div className="rounded-3xl border border-border/60 bg-muted/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-muted/35 hover:shadow-md">
-            <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-              {personalData.education.level}
-            </h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              {personalData.education.institution}
-            </p>
-            <p className="mt-1 text-sm font-medium text-foreground/80">
-              {personalData.education.result}
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

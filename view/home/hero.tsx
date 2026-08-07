@@ -158,7 +158,7 @@ export function Hero() {
                 <div className="mt-6 space-y-3 text-sm text-white/78">
                   <div className="flex items-start gap-3">
                     <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
-                    <span>BAUST University, CSE ({personalData.post})</span>
+                    <span>BAUST University, CSE </span>
                   </div>
                   <div className="flex items-start gap-3">
                     <Code2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
@@ -168,12 +168,7 @@ export function Hero() {
                     <Trophy className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
                     <span>Problem solving with Codeforces and beecrowd</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
-                    <span>
-                      {personalData.education.level} - {personalData.education.institution} - {personalData.education.result}
-                    </span>
-                  </div>
+
                   <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
                     <span>Saidpur, Rajshahi, Bangladesh</span>

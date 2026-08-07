@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
-import { scrollToElement, scrollToTop } from "@/lib/scroll";
+import { getStickyHeaderOffset, scrollToElement, scrollToTop } from "@/lib/scroll";
 import { setScrollTarget } from "@/view/home/scroll-to-target";
 import { personalData } from "@/lib/data/personal-data";
 
@@ -17,11 +17,12 @@ const navLinks = [
   { name: "Skills", type: "section", target: "skill" },
   { name: "Projects", type: "section", target: "projects" },
   { name: "Experience", type: "section", target: "experience" },
+  { name: "Education", type: "section", target: "education" },
   { name: "Highlights", type: "section", target: "blog" },
   { name: "Contact", type: "section", target: "contact" },
 ];
 
-const sectionOrder = ["home", "skill", "projects", "experience", "blog", "contact"];
+const sectionOrder = ["home", "skill", "projects", "experience", "education", "blog", "contact"];
 
 const sectionToLink: Record<string, string> = {
   home: "Home",
@@ -29,6 +30,7 @@ const sectionToLink: Record<string, string> = {
   skill: "Skills",
   projects: "Projects",
   blog: "Highlights",
+  education: "Education",
   contact: "Contact",
 };
 
@@ -46,7 +48,8 @@ export function Header() {
     }
 
     const updateActiveLink = () => {
-      const offset = 160;
+      const offset = getStickyHeaderOffset();
+      const marker = window.scrollY + offset + window.innerHeight * 0.35;
       let currentSection = "home";
 
       for (const sectionId of sectionOrder) {
@@ -56,9 +59,16 @@ export function Header() {
           continue;
         }
 
-        const { top } = element.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + rect.height;
 
-        if (top <= offset) {
+        if (marker >= top && marker < bottom) {
+          currentSection = sectionId;
+          break;
+        }
+
+        if (marker >= top) {
           currentSection = sectionId;
         }
       }
@@ -110,7 +120,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/90 pt-4 pb-4 backdrop-blur-md">
+    <header data-sticky-header="true" className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/90 pt-4 pb-4 backdrop-blur-md">
       <Container>
         <div className="flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center gap-1 z-50">
