@@ -55,7 +55,6 @@ export const skillGroups: SkillGroup[] = [
     title: "Research",
     items: [
       "Phishing Detection",
-      "Deepfake Detection",
       "Literature Review",
       "Dataset Collection"
     ],
